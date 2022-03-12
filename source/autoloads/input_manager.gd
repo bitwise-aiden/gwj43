@@ -21,7 +21,8 @@ var input: Dictionary = {
 	"down": InputKey.new(KEY_S),
 	"left": InputKey.new(KEY_A),
 	"right": InputKey.new(KEY_D),
-	"skip_text": InputKey.new(KEY_SPACE)
+	"skip_text": InputKey.new(KEY_SPACE),
+	"dash": InputKey.new(KEY_SHIFT),
 }
 
 var __used_keys: Dictionary  = {

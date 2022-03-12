@@ -20,7 +20,8 @@ var input: Dictionary = {
 	"up": InputKey.new(KEY_W),
 	"down": InputKey.new(KEY_S),
 	"left": InputKey.new(KEY_A),
-	"right": InputKey.new(KEY_D)
+	"right": InputKey.new(KEY_D),
+	"skip_text": InputKey.new(KEY_SPACE)
 }
 
 var __used_keys: Dictionary  = {

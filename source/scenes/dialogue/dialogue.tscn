@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://source/scenes/dialogue/dialogue.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme/game_theme.tres" type="Theme" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "text_display"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="dialogue" type="Node"]
+script = ExtResource( 1 )
+dialogueJson = "res://assets/conversations/test/BossConversation.json"
+
+[node name="dialogue_box" type="Node" parent="."]
+
+[node name="background" type="NinePatchRect" parent="dialogue_box"]
+margin_left = 131.0
+margin_top = 537.0
+margin_right = 1112.0
+margin_bottom = 682.0
+
+[node name="text_margins" type="MarginContainer" parent="dialogue_box/background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="text" type="RichTextLabel" parent="dialogue_box/background/text_margins"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 961.0
+margin_bottom = 125.0
+theme = ExtResource( 2 )
+bbcode_enabled = true
+
+[node name="text_animator" type="AnimationPlayer" parent="dialogue_box/background/text_margins/text"]
+anims/RESET = SubResource( 1 )
+anims/text_display = SubResource( 2 )
+
+[node name="speaker_label" type="RichTextLabel" parent="dialogue_box/background"]
+margin_left = -61.0
+margin_top = 113.0
+margin_right = 252.0
+margin_bottom = 153.0
+theme = ExtResource( 2 )
+bbcode_enabled = true
+fit_content_height = true

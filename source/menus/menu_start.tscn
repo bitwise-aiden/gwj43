@@ -66,9 +66,9 @@ script = ExtResource( 2 )
 [node name="title" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -9.0
+margin_left = 631.0
 margin_top = 194.0
-margin_right = 499.992
+margin_right = 1139.99
 margin_bottom = 436.998
 rect_pivot_offset = Vector2( 254, 121 )
 texture = ExtResource( 1 )

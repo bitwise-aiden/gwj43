@@ -1,0 +1,15 @@
+{
+	"conversation": [{
+		"speaker": "Boss",
+		"lines": "You there! THE SYSTEM IS [shake rate=10 level=20]DOWN[/shake]!"
+	}, {
+		"speaker": "Boss",
+		"lines": "I need you to FIX IT! I have [rainbow freq=0.2 sat=10 val=20]VERY IMPORTANT[/rainbow] THINGS TO DO!"
+	}, {
+		"speaker": "Boss",
+		"lines": "Well? [tornado radius=5 freq=2]GET GOING[/tornado]!"
+	}, {
+		"speaker": "Boss",
+		"lines": "Honestly, what do I even [wave amp=50 freq=2]PAY[/wave] you FOR?"
+	}]
+}

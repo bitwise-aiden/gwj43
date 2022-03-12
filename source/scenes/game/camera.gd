@@ -36,10 +36,6 @@ func _process(delta: float) -> void:
 
 	__closest_point = __calculate_closest_point(__bounds_target, pos_target)
 
-#	if __closest_point == pos_target:
-#		__move_target = pos_camera
-#		return
-
 	__move_target = pos_camera
 	__move_target += pos_target - __closest_point
 	__move_target = __calculate_closest_point(__bounds_dungeon, __move_target)
@@ -48,8 +44,6 @@ func _process(delta: float) -> void:
 	var damping: float = clamp(distance * distance * 0.05, 0.01, 1.0)
 
 	global_position = pos_camera.move_toward(__move_target, delta * 1750.0 * damping)
-
-	update()
 
 
 # Public methods

@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	var distance: float = pos_camera.distance_to(__closest_point) + 0.5
 	var damping: float = clamp(distance * distance * 0.05, 0.01, 1.0)
 
-	global_position = pos_camera.move_toward(__move_target, delta * 1500.0 * damping)
+	global_position = pos_camera.move_toward(__move_target, delta * 1750.0 * damping)
 
 	update()
 

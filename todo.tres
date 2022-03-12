@@ -1,3 +1,21 @@
-[gd_resource type="TextFile" format=2]
-
-[resource]
+[ ] map generation
+	[ ] follow binding of isaac breakdown (https://www.boristhebrave.com/2020/09/12/dungeon-generation-in-binding-of-isaac/)
+	[ ] 9x8 grid
+	[ ] pick from pool
+	[ ] all rooms have all exits
+	[ ] number of rooms = randi() % 2 + 5 + level * 2.6
+	[ ] traversal
+		[ ] stop if cell occupied
+		[ ] stop if cell has more than one neighbour
+		[ ] stop if we have enough rooms
+		[ ] stop if random 50% chance to give up (same)
+		[ ] otherwise add to queue
+			[ ] if it doesn't have a neighbour, mark as end node
+[ ] map traversal
+	[ ] rooms larger than screen size
+	[ ] will always have a door on each side
+[ ] player movement
+	[ ] 8 directional movement
+	[ ] dash
+[ ] camera
+	[ ] dead area, etc

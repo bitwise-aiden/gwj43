@@ -9,65 +9,48 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "BaseTask",
+"base": "Node2D",
+"class": "Dungeon",
 "language": "GDScript",
-"path": "res://source/helpers/tasks/base_task.gd"
+"path": "res://source/dungeons/dungeon.gd"
 }, {
-"base": "Reference",
-"class": "CurrentQueue",
+"base": "Camera2D",
+"class": "GameCamera",
 "language": "GDScript",
-"path": "res://source/helpers/current_queue.gd"
+"path": "res://source/scenes/game/camera.gd"
 }, {
 "base": "EditorPlugin",
 "class": "GodotReset",
 "language": "GDScript",
 "path": "res://addons/godot_reset/godot_reset.gd"
 }, {
-"base": "Reference",
-"class": "PlayerInput",
+"base": "KinematicBody2D",
+"class": "Player",
 "language": "GDScript",
-"path": "res://source/helpers/player_input.gd"
-}, {
-"base": "Reference",
-"class": "Task",
-"language": "GDScript",
-"path": "res://source/helpers/tasks/task.gd"
-}, {
-"base": "Reference",
-"class": "TaskQueue",
-"language": "GDScript",
-"path": "res://source/helpers/tasks/task_queue.gd"
+"path": "res://source/entities/player/player.gd"
 } ]
 _global_script_class_icons={
-"BaseTask": "",
-"CurrentQueue": "",
+"Dungeon": "",
+"GameCamera": "",
 "GodotReset": "",
-"PlayerInput": "",
-"Task": "",
-"TaskQueue": ""
+"Player": ""
 }
 
 [application]
 
 config/name="gwj43"
-run/main_scene="res://source/main.tscn"
+run/main_scene="res://source/scenes/game/game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://source/autoloads/globals.gd"
 Event="*res://source/autoloads/event.gd"
+Logger="*res://source/autoloads/logger.gd"
 FileManager="*res://source/autoloads/file_manager.gd"
 SettingsManager="*res://source/autoloads/settings_manager.gd"
-Logger="*res://source/autoloads/logger.gd"
-Time="*res://source/autoloads/time.gd"
-PhysicsTime="*res://source/autoloads/physics_time.gd"
-SceneManager="*res://source/autoloads/scene_manager.tscn"
-TaskManager="*res://source/autoloads/task_manager.gd"
-AudioManager="*res://source/autoloads/audio_manager.gd"
 InputManager="*res://source/autoloads/input_manager.gd"
-DebugManager="*res://source/autoloads/debug_manager.gd"
+SceneManager="*res://source/autoloads/scene_manager.tscn"
 
 [display]
 
@@ -81,7 +64,31 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godot_reset/plugin.cfg", "res://addons/velopbot/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/godot_reset/plugin.cfg" )
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [rendering]
 

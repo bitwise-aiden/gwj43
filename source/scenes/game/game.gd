@@ -23,8 +23,18 @@ func _ready() -> void:
 # Private methods
 
 func __spawn_rooms() -> void:
-	var dungeon: Dungeon = dungeon_pool[randi() % dungeon_pool.size()].instance()
+	var positions: Array = [
+		Vector2.ZERO,
+		Vector2.UP,
+		Vector2.DOWN,
+		Vector2.LEFT,
+		Vector2.RIGHT
+	]
 
-	dungeon.modulate = Color("#1F2337")
+	for dungeon_position in positions:
+		var dungeon: Dungeon = dungeon_pool[randi() % dungeon_pool.size()].instance()
+		dungeon.position = dungeon_position * Globals.DUNGEON_SIZE
 
-	add_child(dungeon)
+		dungeon.modulate = Color(randf(), randf(), randf())
+
+		add_child(dungeon)

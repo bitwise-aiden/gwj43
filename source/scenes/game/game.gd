@@ -30,7 +30,7 @@ func __get_neighbours(dungeons: Dictionary, pos_current: Vector2) -> Array:
 		var pos_neighbour: Vector2 = pos_current + offset
 
 		if dungeons.has(pos_neighbour):
-			neighbours.append(pos_neighbour)
+			neighbours.append(offset)
 
 	return neighbours
 
@@ -45,6 +45,8 @@ func __spawn_dungeons() -> void:
 	for dungeon_position in dungeons:
 		var dungeon: Dungeon = dungeon_pool[dungeons[dungeon_position]].instance()
 		dungeon.position = dungeon_position * Globals.DUNGEON_SIZE
+
+		dungeon.set_doors(__get_neighbours(dungeons, dungeon_position))
 
 		dungeon.modulate = Color(randf(), randf(), randf())
 

@@ -9,7 +9,7 @@ var __bounds_dungeon: Rect2 = Rect2(
 )
 var __bounds_target: Rect2 = Rect2(
 	Vector2.ZERO,
-	Vector2(640.0, 360.0)
+	Vector2(640.0, 250.0)
 )
 
 var __target: Node2D = null

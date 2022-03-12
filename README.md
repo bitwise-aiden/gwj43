@@ -1,2 +1,2 @@
-# godot-template
-Template project to be used as a base for creating a new project in Godot
+# GWJ43
+Game made for Godot Wild Jam 43. Theme: Combine

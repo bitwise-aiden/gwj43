@@ -6,3 +6,8 @@ export.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+
+
+# velop ignores
+addons/godot_reset/
+addons/ridiculous_coding/

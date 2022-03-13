@@ -47,3 +47,9 @@ margin_bottom = 59.0
 rect_min_size = Vector2( 400, 60 )
 texture = ExtResource( 3 )
 expand = true
+
+[node name="spacer" type="Control" parent="main_container"]
+margin_top = 64.0
+margin_right = 1180.0
+margin_bottom = 620.0
+size_flags_vertical = 3

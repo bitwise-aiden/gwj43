@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://source/scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://source/dungeons/dungeon_temp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/scenes/game/camera.gd" type="Script" id=4]
+[ext_resource path="res://source/scenes/ui/ui.tscn" type="PackedScene" id=5]
 
 [node name="game" type="YSort"]
 script = ExtResource( 1 )
@@ -13,6 +14,12 @@ dungeon_pool = [ ExtResource( 2 ) ]
 z_index = 5
 zoom = Vector2( 1.5, 1.5 )
 script = ExtResource( 4 )
+
+[node name="ui" parent="camera" instance=ExtResource( 5 )]
+margin_left = -962.0
+margin_top = -537.0
+margin_right = 957.0
+margin_bottom = 539.0
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 

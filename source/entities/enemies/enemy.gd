@@ -23,7 +23,9 @@ func damage() -> void:
 	_health -= 1
 
 	if _health == 0:
-		_died()
+		var result: GDScriptFunctionState = _died()
+		if result:
+			yield(result, "completed")
 
 		Event.emit_signal("enemy_died", self)
 		queue_free()

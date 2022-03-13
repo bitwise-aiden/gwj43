@@ -33,6 +33,22 @@ type = ExtResource( 7 )
 position = Vector2( -469, 125 )
 type = ExtResource( 7 )
 
+[node name="pick_up4" parent="." instance=ExtResource( 6 )]
+position = Vector2( -345, 242 )
+type = ExtResource( 7 )
+
+[node name="pick_up5" parent="." instance=ExtResource( 6 )]
+position = Vector2( -178, 290 )
+type = ExtResource( 7 )
+
+[node name="pick_up6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4, 294 )
+type = ExtResource( 7 )
+
+[node name="pick_up7" parent="." instance=ExtResource( 6 )]
+position = Vector2( -512, 281 )
+type = ExtResource( 7 )
+
 [node name="table" parent="." instance=ExtResource( 5 )]
 position = Vector2( 249, 130 )
 

@@ -53,6 +53,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://source/entities/player/player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/projectile.gd"
+}, {
+"base": "Projectile",
+"class": "ProjectileVortex",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/projectile_vortex.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
@@ -63,7 +73,9 @@ _global_script_class_icons={
 "GameCamera": "",
 "GodotReset": "",
 "PickUpType": "",
-"Player": ""
+"Player": "",
+"Projectile": "",
+"ProjectileVortex": ""
 }
 
 [application]
@@ -120,6 +132,16 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="projectile_player"
+2d_physics/layer_5="projectile_enemy"
+2d_physics/layer_6="pickup"
+2d_physics/layer_7="low_obstacle"
 
 [rendering]
 

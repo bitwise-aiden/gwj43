@@ -16,12 +16,17 @@ onready var __player: Player = $player
 # Lifecycle methods
 
 func _ready() -> void:
+	Event.connect("dungeon_changed", self, "__dungeon_changed")
+
 	__camera.set_target(__player)
 
 	__spawn_dungeons()
 
 
 # Private methods
+
+func __dugeon_changed(dungeon: Dungeon) -> void:
+	pass
 
 func __get_neighbours(dungeons: Dictionary, pos_current: Vector2) -> Array:
 	var neighbours: Array = []
@@ -47,7 +52,5 @@ func __spawn_dungeons() -> void:
 		dungeon.position = dungeon_position * Globals.DUNGEON_SIZE
 
 		dungeon.set_doors(__get_neighbours(dungeons, dungeon_position))
-
-		dungeon.modulate = Color(randf(), randf(), randf())
 
 		__dungeon_parent.add_child(dungeon)

@@ -34,11 +34,10 @@
 	[ ] special items
 	[ ] player walking into room walks to certain point if not entered before
 [ ] enemies
-	[ ] ???
 	[ ] static 
 		[ ] quad directional
 		[ ] ring of bullets
-		[ ] 
+		[x] rapid fire
 	[ ] moving
 		[ ] dash at player
 [ ] player

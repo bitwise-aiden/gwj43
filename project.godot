@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/helpers/dungeon_generator.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://source/entities/enemies/enemy.gd"
+}, {
+"base": "Enemy",
+"class": "EnemyVortex",
+"language": "GDScript",
+"path": "res://source/entities/enemies/enemy_vortex.gd"
+}, {
 "base": "Camera2D",
 "class": "GameCamera",
 "language": "GDScript",
@@ -48,6 +58,8 @@ _global_script_class_icons={
 "Bomb": "",
 "Dungeon": "",
 "DungeonGenerator": "",
+"Enemy": "",
+"EnemyVortex": "",
 "GameCamera": "",
 "GodotReset": "",
 "PickUpType": "",

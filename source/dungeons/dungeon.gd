@@ -4,6 +4,7 @@ class_name Dungeon extends Node2D
 # Public variables
 
 var bounds: Rect2 setget , __bounds_get
+var position_level: Vector2
 
 
 # Private variables

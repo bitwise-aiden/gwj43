@@ -49,9 +49,11 @@ func _process(delta: float) -> void:
 # Public methods
 
 func set_bounds_dungeon(bounds: Rect2) -> void:
+	var screen_size: Vector2 = Globals.SCREEN_SIZE * zoom
+
 	__bounds_dungeon = bounds
-	__bounds_dungeon.position += Globals.SCREEN_SIZE * 0.5
-	__bounds_dungeon.size -= Globals.SCREEN_SIZE
+	__bounds_dungeon.position += screen_size * 0.5
+	__bounds_dungeon.size -= screen_size
 
 
 func set_target(target: Node2D) -> void:

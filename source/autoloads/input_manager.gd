@@ -23,6 +23,7 @@ var input: Dictionary = {
 	"right": InputKey.new(KEY_D),
 	"skip_text": InputKey.new(KEY_SPACE),
 	"dash": InputKey.new(KEY_SHIFT),
+	"bomb": InputKey.new(KEY_E),
 }
 
 var __used_keys: Dictionary  = {

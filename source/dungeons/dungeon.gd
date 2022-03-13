@@ -4,6 +4,7 @@ class_name Dungeon extends Node2D
 # Public variables
 
 var bounds: Rect2 setget , __bounds_get
+var position_level: Vector2
 
 
 # Private variables
@@ -15,6 +16,7 @@ onready var __door_colliders: Dictionary = {
 	Vector2.UP: $collider_doors/up,
 	Vector2.DOWN: $collider_doors/down,
 }
+onready var __projectile_parent: Node2D = $projectile_parent
 
 var __active_doors: Array = []
 
@@ -28,6 +30,10 @@ func _ready() -> void:
 
 
 # Public methods
+
+func add_projectile(projectile: Node2D) -> void:
+	__projectile_parent.call_deferred("add_child", projectile)
+
 
 func doors_lock() -> void:
 	for door in __door_colliders:

@@ -1,19 +1,30 @@
 extends Node2D
 
 
+# Public variables
+
+export(Resource) var type: Resource # PickUpType
+
+
 # Private variables
 
 onready var __animation: AnimationPlayer = $animation
 onready var __collider_area: Area2D = $collider_area
 onready var __collider_mover: Area2D = $collider_mover
+onready var __sprite: Sprite = $sprite
 
-var __type: PickUpType
 var __target: Node2D
 
 
 # Lifecycle methods
 
 func _ready() -> void:
+	if !type:
+		queue_free()
+		return
+
+	__sprite.texture = type.texture
+
 	__collider_area.connect("body_entered", self, "__pick_up")
 
 	__collider_mover.connect("body_entered", self, "__target", [true])
@@ -39,6 +50,7 @@ func __pick_up(body: Node2D) -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 
 		if __target:
+			body.pick_up(type) # bless you - TheYagich)
 			queue_free()
 
 

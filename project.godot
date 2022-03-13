@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Bomb",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/bomb.gd"
+}, {
+"base": "Node2D",
 "class": "Dungeon",
 "language": "GDScript",
 "path": "res://source/dungeons/dungeon.gd"
@@ -19,10 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/helpers/dungeon_generator.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://source/entities/enemies/enemy.gd"
+}, {
+"base": "Enemy",
+"class": "EnemyVortex",
+"language": "GDScript",
+"path": "res://source/entities/enemies/enemy_vortex.gd"
+}, {
 "base": "Camera2D",
 "class": "GameCamera",
 "language": "GDScript",
 "path": "res://source/scenes/game/camera.gd"
+}, {
+"base": "EditorPlugin",
+"class": "GodotReset",
+"language": "GDScript",
+"path": "res://addons/godot_reset/godot_reset.gd"
 }, {
 "base": "Resource",
 "class": "PickUpType",
@@ -33,13 +53,29 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://source/entities/player/player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/projectile.gd"
+}, {
+"base": "Projectile",
+"class": "ProjectileVortex",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/projectile_vortex.gd"
 } ]
 _global_script_class_icons={
+"Bomb": "",
 "Dungeon": "",
 "DungeonGenerator": "",
+"Enemy": "",
+"EnemyVortex": "",
 "GameCamera": "",
+"GodotReset": "",
 "PickUpType": "",
-"Player": ""
+"Player": "",
+"Projectile": "",
+"ProjectileVortex": ""
 }
 
 [application]
@@ -57,6 +93,7 @@ FileManager="*res://source/autoloads/file_manager.gd"
 SettingsManager="*res://source/autoloads/settings_manager.gd"
 InputManager="*res://source/autoloads/input_manager.gd"
 SceneManager="*res://source/autoloads/scene_manager.tscn"
+ProjectileSpawner="*res://source/entities/projectiles/projectile_spawner.gd"
 
 [display]
 
@@ -70,7 +107,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/godot_reset/plugin.cfg" )
 
 [importer_defaults]
 
@@ -95,6 +132,16 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="projectile_player"
+2d_physics/layer_5="projectile_enemy"
+2d_physics/layer_6="pickup"
+2d_physics/layer_7="low_obstacle"
 
 [rendering]
 

@@ -78,3 +78,5 @@ shape = SubResource( 4 )
 [node name="down" type="CollisionShape2D" parent="collider_doors"]
 position = Vector2( 0, 640 )
 shape = SubResource( 4 )
+
+[node name="projectile_parent" type="Node2D" parent="."]

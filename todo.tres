@@ -22,7 +22,7 @@
 		[ ] 
 	[ ] pet can attack enemies
 [ ] pick up
-	[ ] bomb
+	[x] bomb
 	[ ] key
 	[ ] stat boost
 	[ ] item boost
@@ -32,8 +32,15 @@
 [ ] rooms
 	[ ] boss
 	[ ] special items
+	[ ] player walking into room walks to certain point if not entered before
 [ ] enemies
 	[ ] ???
+	[ ] static 
+		[ ] quad directional
+		[ ] ring of bullets
+		[ ] 
+	[ ] moving
+		[ ] dash at player
 [ ] player
 	[ ] damage
 		[ ] n damage for pet hit

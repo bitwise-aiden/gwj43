@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/scenes/game/camera.gd"
 }, {
-"base": "EditorPlugin",
-"class": "GodotReset",
+"base": "Resource",
+"class": "PickUpType",
 "language": "GDScript",
-"path": "res://addons/godot_reset/godot_reset.gd"
+"path": "res://source/entities/pick_up/types/pick_up_type.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -38,7 +38,7 @@ _global_script_class_icons={
 "Dungeon": "",
 "DungeonGenerator": "",
 "GameCamera": "",
-"GodotReset": "",
+"PickUpType": "",
 "Player": ""
 }
 
@@ -70,7 +70,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godot_reset/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 

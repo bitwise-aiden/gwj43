@@ -41,7 +41,6 @@ func door_unlock() -> void:
 
 func set_doors(doors: Array) -> void:
 	__active_doors = doors
-	print(__active_doors)
 
 
 # Private methods

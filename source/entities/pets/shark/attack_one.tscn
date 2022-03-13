@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/entities/pets/shark/attack_one.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 9.05539
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="projectile" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="projectile"]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="projectile" to="." method="_on_projectile_body_entered"]

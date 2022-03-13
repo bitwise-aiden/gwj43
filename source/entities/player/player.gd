@@ -33,7 +33,10 @@ func pick_up(type: PickUpType) -> void:
 # Public methods
 
 func __abilities(delta: float) -> void:
-	pass
+	if __bomb_count && Input.is_action_just_pressed("bomb"):
+		if ProjectileSpawner.spawn_bomb(global_position):
+			print("spawned")
+			__bomb_count -= 1
 
 
 func __movement(delta: float) -> void:

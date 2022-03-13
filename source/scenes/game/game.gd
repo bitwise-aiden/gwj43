@@ -20,6 +20,12 @@ var __loaded_dungeons: Dictionary = {
 	# value: Dungeon
 }
 
+var __current_dungeon: Dungeon
+var __dungeon_state: Dictionary = {
+	# key: Vector2
+	# value: Dictionary - state
+}
+
 
 # Lifecycle methods
 
@@ -34,6 +40,13 @@ func _ready() -> void:
 # Private methods
 
 func __dungeon_changed(dungeon: Dungeon) -> void:
+	if __current_dungeon:
+		__dungeon_state[__current_dungeon.position_level] = __current_dungeon.exit()
+
+	var dungeon_state: Dictionary = __dungeon_state.get(dungeon.position_level, {})
+	__current_dungeon = dungeon
+	__current_dungeon.enter(dungeon_state)
+
 	__load_dungeons(dungeon.position_level)
 
 

@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/dungeons/dungeon_test.png" type="Texture" id=1]
 [ext_resource path="res://source/dungeons/dungeon.gd" type="Script" id=2]
+[ext_resource path="res://source/entities/enemies/enemy_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://source/entities/enemies/enemy_vortex.tscn" type="PackedScene" id=4]
+[ext_resource path="res://source/entities/pick_up/pick_up.tscn" type="PackedScene" id=5]
+[ext_resource path="res://source/entities/pick_up/types/pick_up_bomb.tres" type="Resource" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 320 )
@@ -83,3 +87,53 @@ position = Vector2( 0, 640 )
 shape = SubResource( 4 )
 
 [node name="projectile_parent" type="Node2D" parent="."]
+
+[node name="enemy_parent" type="Node2D" parent="."]
+
+[node name="enemy_spawner_parent" type="Node2D" parent="."]
+
+[node name="enemy_spawner_0" parent="enemy_spawner_parent" instance=ExtResource( 3 )]
+position = Vector2( -736, -310 )
+possible_enemies = [ ExtResource( 4 ) ]
+
+[node name="enemy_spawner_1" parent="enemy_spawner_parent" instance=ExtResource( 3 )]
+position = Vector2( -761, 348 )
+possible_enemies = [ ExtResource( 4 ) ]
+
+[node name="enemy_spawner_2" parent="enemy_spawner_parent" instance=ExtResource( 3 )]
+position = Vector2( 690, 345 )
+possible_enemies = [ ExtResource( 4 ) ]
+
+[node name="enemy_spawner_3" parent="enemy_spawner_parent" instance=ExtResource( 3 )]
+position = Vector2( 687, -303 )
+possible_enemies = [ ExtResource( 4 ) ]
+
+[node name="fade" type="Node2D" parent="."]
+z_index = 10
+
+[node name="rect" type="ColorRect" parent="fade"]
+margin_left = -1280.0
+margin_top = -704.0
+margin_right = 1280.0
+margin_bottom = 704.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="pick_up" parent="." instance=ExtResource( 5 )]
+position = Vector2( -315, 43 )
+type = ExtResource( 6 )
+
+[node name="pick_up2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -318, -131 )
+type = ExtResource( 6 )
+
+[node name="pick_up3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 79 )
+type = ExtResource( 6 )
+
+[node name="pick_up4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -15, 238 )
+type = ExtResource( 6 )
+
+[node name="pick_up5" parent="." instance=ExtResource( 5 )]
+position = Vector2( -261, 139 )
+type = ExtResource( 6 )

@@ -1,6 +1,16 @@
 class_name Enemy extends KinematicBody2D
 
 
+# Public signals
+
+signal died(enemy)
+
+
+# Public variables
+
+var spawner_id: int = -1
+
+
 # Protected variables
 
 var _health: int
@@ -27,7 +37,7 @@ func damage() -> void:
 		if result:
 			yield(result, "completed")
 
-		Event.emit_signal("enemy_died", self)
+		emit_signal("died", self)
 		queue_free()
 	else:
 		_damaged()

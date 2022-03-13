@@ -61,10 +61,10 @@ func _attack(delta: float) -> void:
 
 	__cooldown_attack = __COOLDOWN_ATTACK
 
-	var target_direction: Vector2 = (__target.position - position).normalized()
+	var target_direction: Vector2 = (__target.global_position - global_position).normalized()
 
 	for i in 3:
-		ProjectileSpawner.spawn_projectile_vortex(position, target_direction)
+		ProjectileSpawner.spawn_projectile_vortex(global_position, target_direction)
 
 		yield(get_tree().create_timer(0.3), "timeout")
 

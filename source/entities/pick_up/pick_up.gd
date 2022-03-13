@@ -37,10 +37,10 @@ func _process(delta):
 	if !__target:
 		return
 
-	var distance: float = 64.0 - position.distance_to(__target.position)
+	var distance: float = 64.0 - global_position.distance_to(__target.global_position)
 	var damping: float = clamp(distance * distance * delta * 0.05, 0.5, 1.0)
 
-	position = position.move_toward(__target.position, delta * 500.0 * damping)
+	global_position = global_position.move_toward(__target.global_position, delta * 500.0 * damping)
 
 
 # Private methods

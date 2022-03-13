@@ -24,7 +24,7 @@ func spawn_bomb(position: Vector2) -> bool:
 		return false
 
 	var instance: Bomb = __BOMB.instance()
-	instance.position = position
+	instance.position = position - __target_dungeon.position
 
 	__target_dungeon.add_projectile(instance)
 
@@ -34,7 +34,6 @@ func spawn_bomb(position: Vector2) -> bool:
 func spawn_projectile_vortex(position: Vector2, direction: Vector2) -> bool:
 	if !__target_dungeon:
 		return false
-
 
 	var instance: ProjectileVortex = __PROJECTILE_VORTEX.instance()
 	instance.position = position

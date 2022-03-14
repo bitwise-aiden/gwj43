@@ -12,17 +12,14 @@ onready var __projectile_spawn: Array = $projectile_spawn_parent.get_children()
 onready var __initial_scale: Vector2 = scale
 
 var __time_elapsed: float = 0.0
-var __tween: Tween = Tween.new()
 
 
 # Lifecycle methods
 
 func _ready() -> void:
-	add_child(__tween)
-
 	_health = __HEALTH
 
-	__tween.interpolate_property(
+	_tween.interpolate_property(
 		self,
 		"scale",
 		Vector2.ZERO,
@@ -30,9 +27,7 @@ func _ready() -> void:
 		0.5
 	)
 
-
-
-	__tween.interpolate_property(
+	_tween.interpolate_property(
 		self,
 		"rotation_degrees",
 		0.0,
@@ -40,9 +35,9 @@ func _ready() -> void:
 		0.5
 	)
 
-	__tween.start()
+	_tween.start()
 
-	yield(__tween, "tween_all_completed")
+	yield(_tween, "tween_all_completed")
 
 	_spawned = true
 
@@ -60,18 +55,21 @@ func _attack(delta: float) -> void:
 	var scales: Array = [__initial_scale, __initial_scale * 0.75]
 
 	for i in 6:
-		__tween.interpolate_property(
+		_tween.interpolate_property(
 			self,
 			"scale",
 			scales[0],
 			scales[1],
 			0.1
 		)
-		__tween.start()
+		_tween.start()
 
-		yield(__tween, "tween_completed")
+		yield(_tween, "tween_completed")
 
 		scales.invert()
+
+		if i % 2 == 0:
+			continue
 
 		for spawn in __projectile_spawn:
 			ProjectileSpawner.spawn_projectile_quad(

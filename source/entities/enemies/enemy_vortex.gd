@@ -12,22 +12,18 @@ onready var __collider_target: Area2D = $collider_target
 onready var __sprite: Sprite = $sprite
 onready var __initial_scale: Vector2 = scale
 
-var __tween: Tween = Tween.new()
-
 var __target: Node2D
 
 
 # Lifecycle methods
 
 func _ready() -> void:
-	add_child(__tween)
-
 	_health = __HEALTH
 
 	__collider_target.connect("body_entered", self, "__target_add")
 	__collider_target.connect("body_exited", self, "__target_remove")
 	# I like shorts! They're comfy, and easy to wear. - Daverinoe
-	__tween.interpolate_property(
+	_tween.interpolate_property(
 		self,
 		"scale",
 		Vector2.ZERO,
@@ -35,9 +31,9 @@ func _ready() -> void:
 		0.5
 	)
 
-	__tween.start()
+	_tween.start()
 
-	yield(__tween, "tween_completed")
+	yield(_tween, "tween_completed")
 
 	_spawned = true
 
@@ -69,7 +65,7 @@ func _damaged() -> void:
 func _died() -> void:
 	_spawned = false
 
-	__tween.interpolate_property(
+	_tween.interpolate_property(
 		self,
 		"scale",
 		__initial_scale,
@@ -77,9 +73,9 @@ func _died() -> void:
 		0.5
 	)
 
-	__tween.start()
+	_tween.start()
 
-	yield(__tween, "tween_completed")
+	yield(_tween, "tween_completed")
 
 
 func _move(delta: float) -> void:

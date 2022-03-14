@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec4 blend_color: hint_color;
+
+void fragment() 
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color.a > 0.5 && blend_color.a > 0.0)
+	{
+		color = mix(color, blend_color, 1.0);
+	}
+	
+	COLOR = color; 
+}"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 3 )
+shader_param/blend_color = Color( 1, 1, 1, 0 )

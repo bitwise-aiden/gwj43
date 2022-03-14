@@ -15,7 +15,6 @@ onready var __initial_scale: Vector2 = scale
 var __tween: Tween = Tween.new()
 
 var __target: Node2D
-var __cooldown_attack: float = 0.0
 
 
 # Lifecycle methods
@@ -50,16 +49,10 @@ func _process(delta: float) -> void:
 # Protected methods
 
 func _attack(delta: float) -> void:
-	if __cooldown_attack:
-		__cooldown_attack = max(0.0, __cooldown_attack - delta)
-
-		return
-
-
 	if !__target:
 		return
 
-	__cooldown_attack = __COOLDOWN_ATTACK
+	_cooldown_attack = __COOLDOWN_ATTACK
 
 	var target_direction: Vector2 = (__target.global_position - global_position).normalized()
 
@@ -70,7 +63,7 @@ func _attack(delta: float) -> void:
 
 
 func _damaged() -> void:
-	print("enemy damaged", _health)
+	pass
 
 
 func _died() -> void:

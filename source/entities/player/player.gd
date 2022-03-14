@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 # Public methods
 
 func damage() -> void:
-	print("Damaged")
+	pass
 
 
 func pick_up(type: PickUpType) -> void:
@@ -35,7 +35,6 @@ func pick_up(type: PickUpType) -> void:
 func __abilities(delta: float) -> void:
 	if __bomb_count && Input.is_action_just_pressed("bomb"):
 		if ProjectileSpawner.spawn_bomb(global_position):
-			print("spawned")
 			__bomb_count -= 1
 
 

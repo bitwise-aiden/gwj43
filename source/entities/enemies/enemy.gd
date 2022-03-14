@@ -16,6 +16,8 @@ var spawner_id: int = -1
 var _health: int
 var _spawned: bool = false
 
+var _cooldown_attack: float = 0.0
+
 
 # Lifecycle methods
 
@@ -23,7 +25,11 @@ func _physics_process(delta: float) -> void:
 	if !_spawned:
 		return
 
-	_attack(delta)
+	if _cooldown_attack > 0.0:
+		_cooldown_attack = max(0.0, _cooldown_attack - delta)
+	else:
+		_attack(delta)
+
 	_move(delta)
 
 

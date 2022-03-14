@@ -51,9 +51,6 @@ void fragment()
 	
 	if (dist < radius_time)
 	{
-//		min( dist / radius, 1.0 );
-//		color.a = dist / radius_time;
-		
 		color.a = lerp(0.0, color.a, dist / radius_time);
 	}
 	

@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/entities/enemies/enemy.gd"
 }, {
+"base": "Enemy",
+"class": "EnemyQuad",
+"language": "GDScript",
+"path": "res://source/entities/enemies/enemy_quad.gd"
+}, {
 "base": "Node2D",
 "class": "EnemySpawner",
 "language": "GDScript",
@@ -60,6 +65,11 @@ _global_script_classes=[ {
 "path": "res://source/entities/projectiles/projectile.gd"
 }, {
 "base": "Projectile",
+"class": "ProjectileQuad",
+"language": "GDScript",
+"path": "res://source/entities/projectiles/projectile_quad.gd"
+}, {
+"base": "Projectile",
 "class": "ProjectileVortex",
 "language": "GDScript",
 "path": "res://source/entities/projectiles/projectile_vortex.gd"
@@ -69,12 +79,14 @@ _global_script_class_icons={
 "Dungeon": "",
 "DungeonGenerator": "",
 "Enemy": "",
+"EnemyQuad": "",
 "EnemySpawner": "",
 "EnemyVortex": "",
 "GameCamera": "",
 "PickUpType": "",
 "Player": "",
 "Projectile": "",
+"ProjectileQuad": "",
 "ProjectileVortex": ""
 }
 

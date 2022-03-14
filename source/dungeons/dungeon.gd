@@ -45,7 +45,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if __player:
-		__overlay.material.set_shader_param("player", __player.position + Globals.SCREEN_SIZE + position)
+		__overlay.material.set_shader_param("player", __player.global_position + Globals.SCREEN_SIZE - position)
 
 
 # Public methods

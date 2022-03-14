@@ -7,6 +7,7 @@
 [ext_resource path="res://source/entities/pick_up/pick_up.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/entities/pick_up/types/pick_up_bomb.tres" type="Resource" id=6]
 [ext_resource path="res://assets/sprites/dungeons/overlay.png" type="Texture" id=7]
+[ext_resource path="res://assets/materials/shaders/dark_overlay.gdshader" type="Shader" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 320 )
@@ -20,37 +21,8 @@ extents = Vector2( 1280, 704 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 64 )
 
-[sub_resource type="Shader" id=5]
-code = "shader_type canvas_item; 
-
-
-uniform vec2 player;
-uniform float radius;
-
-float lerp(float a, float b, float t) 
-{
-	return (a - b) * t + a;
-}
-
-void fragment()
-{
-	vec2 size = vec2(textureSize(TEXTURE, 0));
-	vec2 position = UV * size; 
-	
-	vec4 color = texture(TEXTURE, UV);
-	
-	float dist = distance(player, position);
-	
-	if (dist < radius)
-	{
-		color.a = lerp(0.3, color.a, (radius - dist) / radius);
-	}
-	
-	COLOR = color;
-}"
-
 [sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+shader = ExtResource( 8 )
 shader_param/player = Vector2( 1280, 704 )
 shader_param/radius = 400.0
 

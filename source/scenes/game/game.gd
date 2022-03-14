@@ -103,11 +103,3 @@ func __spawn_dungeons() -> void:
 	__dungeons = generator.generate()
 
 	__load_dungeons(Vector2.ZERO)
-
-#	for dungeon_position in __dungeons:
-#		var dungeon: Dungeon = dungeon_pool[__dungeons[dungeon_position]].instance()
-#		dungeon.position = dungeon_position * Globals.DUNGEON_SIZE
-#
-#		dungeon.set_doors(__get_neighbours(dungeons, dungeon_position))
-#
-#		__dungeon_parent.add_child(dungeon)

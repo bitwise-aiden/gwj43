@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 dungeon_pool = [ ExtResource( 2 ) ]
 
 [node name="camera" type="Camera2D" parent="."]
-z_index = 5
+z_index = 100
 zoom = Vector2( 1.5, 1.5 )
 script = ExtResource( 4 )
 

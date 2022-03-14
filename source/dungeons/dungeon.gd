@@ -20,9 +20,12 @@ onready var __door_colliders: Dictionary = {
 onready var __enemy_parent: Node2D = $enemy_parent
 onready var __enemy_spawners: Array = $enemy_spawner_parent.get_children()
 onready var __fade: ColorRect = $fade/rect
+onready var __overlay: Sprite = $overlay
 onready var __projectile_parent: Node2D = $projectile_parent
 
 var __tween: Tween = Tween.new()
+
+var __player: Player
 
 var __active_doors: Array = []
 var __state: Dictionary = {
@@ -38,6 +41,11 @@ func _ready() -> void:
 	__collider_area.connect("body_entered", self, "__body_entered")
 
 	door_unlock()
+
+
+func _process(delta: float) -> void:
+	if __player:
+		__overlay.material.set_shader_param("player", __player.position + Globals.SCREEN_SIZE + position)
 
 
 # Public methods
@@ -112,12 +120,16 @@ func __body_entered(body: Node) -> void:
 		Event.emit_signal("dungeon_changed", self)
 		Event.emit_signal("dungeon_bounds_changed", self.bounds)
 
+		__player = body
+
 
 func __enemy_died(enemy: Enemy) -> void:
 	__state["inactive_spawners"].append(enemy.spawner_id)
 
 
 func __exit() -> void:
+	__player = null
+
 	__tween.interpolate_property(
 		__fade,
 		"color:a",
@@ -134,3 +146,4 @@ func __exit() -> void:
 
 	for enemy in __enemy_parent.get_children():
 		enemy.queue_free()
+

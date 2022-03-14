@@ -55,6 +55,9 @@ func _attack(delta: float) -> void:
 	var scales: Array = [__initial_scale, __initial_scale * 0.75]
 
 	for i in 6:
+		if !_spawned:
+			 return
+
 		_tween.interpolate_property(
 			self,
 			"scale",
@@ -83,7 +86,29 @@ func _damaged() -> void:
 
 
 func _died() -> void:
-	pass
+	_tween.remove(self)
+
+	_spawned = true
+
+	_tween.interpolate_property(
+		self,
+		"scale",
+		__initial_scale,
+		Vector2.ZERO,
+		0.5
+	)
+
+	_tween.interpolate_property(
+		self,
+		"rotation_degrees",
+		1440.0,
+		0.0,
+		0.5
+	)
+
+	_tween.start()
+
+	yield(_tween, "tween_all_completed")
 
 
 func _move(delta: float) -> void:

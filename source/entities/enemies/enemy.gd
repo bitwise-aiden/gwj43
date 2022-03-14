@@ -67,9 +67,6 @@ func damage() -> void:
 		_damaged()
 
 
-
-
-
 # Protected methods
 
 func _attack(delta: float) -> void:
